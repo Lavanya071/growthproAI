@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const BASE_URL = 'https://your-backend-url.onrender.com'; // <-- update this
+const BASE_URL = 'https://growthproai-2.onrender.com/'; // <-- update this
 
 const Dashboard = () => {
   const [name, setName] = useState('');
