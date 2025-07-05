@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const BASE_URL = 'https://your-backend-url.onrender.com'; // <-- update this
+
 const Dashboard = () => {
   const [name, setName] = useState('');
   const [location, setLocation] = useState('');
@@ -10,7 +12,7 @@ const Dashboard = () => {
     e.preventDefault();
     if (!name || !location) return alert("Please fill in all fields.");
     setLoading(true);
-    const res = await fetch('http://localhost:5000/business-data', {
+    const res = await fetch(`${BASE_URL}/business-data`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, location })
@@ -21,7 +23,7 @@ const Dashboard = () => {
   };
 
   const regenerateHeadline = async () => {
-    const res = await fetch(`http://localhost:5000/regenerate-headline?name=${encodeURIComponent(name)}&location=${encodeURIComponent(location)}`);
+    const res = await fetch(`${BASE_URL}/regenerate-headline?name=${encodeURIComponent(name)}&location=${encodeURIComponent(location)}`);
     const json = await res.json();
     setData((prev) => ({ ...prev, headline: json.headline }));
   };
