@@ -17,6 +17,9 @@ const headlines = [
   "Experience Excellence with {name} in {location}",
   "{name} in {location}: Where Quality Meets Service"
 ];
+app.get('/', (req, res) => {
+  res.send('✅ GrowthProAI Backend is Running');
+});
 
 app.post('/business-data', (req, res) => {
   const { name, location } = req.body;
